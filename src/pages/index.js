@@ -9,7 +9,7 @@ export default function Home({ data }) {
   return (
     <Layout>
       <SEO title="nekosu tech blog" description="ねこすが書いている技術ブログです"/>
-      <Hero />
+      {/* <Hero /> */}
       {data.allContentfulBlog.edges.map(edge =>
         <PostLink key={edge.node.slug} post={edge.node} />)}
     </Layout>
