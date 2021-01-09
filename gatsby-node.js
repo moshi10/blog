@@ -9,12 +9,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     edges {
       node {
         title
-        image {
-          title
-          file {
-            url
-          }
-        }
         body {
             childMarkdownRemark{
                 html
