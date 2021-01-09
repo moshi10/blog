@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-import Hero from "../components/hero"
+// import Hero from "../components/hero"
 import PostLink from "../components/post-link"
 import { graphql } from "gatsby";
 import SEO from "../components/seo"
@@ -22,12 +22,6 @@ query MyQuery {
     edges {
       node {
         title
-        image {
-          title
-          file {
-            url
-          }
-        }
         description {
           description
         }
