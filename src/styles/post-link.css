@@ -45,7 +45,8 @@
   
   @media screen and (min-width: 576px) {
     .post-link {
-      grid-template-columns: 280px 1fr;
+      /* grid-template-columns: 280px 1fr; */
+      grid-template-columns: 1fr;
       grid-column-gap: 24px;
     }
     /* .post-link-image {
