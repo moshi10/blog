@@ -37,6 +37,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
  const { edges } = result.data.allContentfulArticle
 
+ //記事詳細ページ
   edges.forEach(edge => {
     createPage({
       path: `/post/${edge.node.createdAt}-${edge.node.slug}`,
@@ -45,3 +46,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 }
+
+//タグ
+ edges.forEach(edge => {
+   createPage({
+     path: `/post/${edge.node.slug}`,
+     context: {
+       slug: edge.node.slug
+     },
+   })
+ })
