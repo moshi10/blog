@@ -2,14 +2,12 @@ import React from "react"
 import { Link } from "gatsby";
 import "../styles/post-link.css"
 
-
-
 export default function PostLink({ post }) {
 
     // const { title, updatedAt, image } = post;
     const { title, updatedAt } = post;
     const description = post.description.description;
-    const pageLink = `/post/${post.slug}/`
+    const pageLink = `/post/${post.createdAt}-${post.slug}/`
 
     return (
         <Link to={pageLink} className="post-link-anchor">

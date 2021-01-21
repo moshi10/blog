@@ -4,36 +4,42 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   const result = await graphql(`
-  {
-  allContentfulBlog {
+ {
+  allContentfulArticle {
     edges {
       node {
         title
         body {
-            childMarkdownRemark{
-                html
-            }
+          childMarkdownRemark {
+            html
+          }
         }
         description {
           description
         }
         slug
-        updatedAt(locale: "ja-JP", formatString: "YYYY年MM月DD日")
+        createdAt(locale: "ja-JP", formatString: "YYYY-MM-DD")
+        updatedAt(locale: "ja-JP", formatString: "YYYY-MM-DD")
+        tags {
+          title
+          slug
+        }
       }
     }
   }
 }
+
   `)
 
   if(result.errors){
       reporter.panicOnBuild(`Error while running GraphQL query.`)
   }
 
- const { edges } = result.data.allContentfulBlog
+ const { edges } = result.data.allContentfulArticle
 
   edges.forEach(edge => {
     createPage({
-      path: `/post/${edge.node.slug}`,
+      path: `/post/${edge.node.createdAt}-${edge.node.slug}`,
       component: path.resolve("./src/templates/post.js"),
       context: { post: edge.node },
     })

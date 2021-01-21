@@ -31,6 +31,9 @@ module.exports = {
         gfm: true,
         plugins: [],
       }
+    },
+    {
+      resolve:`gatsby-plugin-postcss`,
     }
   ],
 }

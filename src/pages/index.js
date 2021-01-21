@@ -10,7 +10,7 @@ export default function Home({ data }) {
     <Layout>
       <SEO title="nekosu tech blog" description="ねこすが書いている技術ブログです"/>
       {/* <Hero /> */}
-      {data.allContentfulBlog.edges.map(edge =>
+      {data.allContentfulArticle.edges.map(edge =>
         <PostLink key={edge.node.slug} post={edge.node} />)}
     </Layout>
   )
@@ -18,7 +18,7 @@ export default function Home({ data }) {
 
 export const query = graphql`
 query MyQuery {
-  allContentfulBlog {
+  allContentfulArticle {
     edges {
       node {
         title
@@ -26,9 +26,15 @@ query MyQuery {
           description
         }
         slug
-        updatedAt(locale: "ja-JP", formatString: "YYYY年MM月DD日")
+        createdAt(locale: "ja-JP", formatString: "YYYY-MM-DD")
+        updatedAt(locale: "ja-JP", formatString: "YYYY-MM-DD")
+        tags {
+          title
+          slug
+        }
       }
     }
   }
 }
+
 `
