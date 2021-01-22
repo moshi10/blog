@@ -19,9 +19,10 @@ export default function PostLink({ post }) {
                 <h2>{title}</h2>
                 <p className="post-link-body">{description}</p>
                 
-                    {post.tags && post.tags.map(({ title, slug }) =>
+                {/* リンクを生成してから表示 */}
+                    {/* {post.tags && post.tags.map(({ title, slug }) =>
                         <li><Link to={`/post/${slug}`}>#{title}</Link></li>)
-                    }
+                    } */}
                 
                 <p className="post-link-date">{updatedAt}</p>
             </div>
