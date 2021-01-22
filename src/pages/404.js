@@ -13,7 +13,9 @@ export default function NotFound() {
                 <h1>404 Not Found</h1>
                 <Link to="/">トップページへ</Link>
             </div>
-            <img src={NOT_FOUND_IMG} className="not-found-image" alt="not found" />
+            <div className="not-found-image-div">
+                <img src={NOT_FOUND_IMG} className="not-found-image" alt="not found" />
+            </div>
         </Layout>
     )
 }

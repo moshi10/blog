@@ -48,11 +48,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 }
 
 //タグ
- edges.forEach(edge => {
-   createPage({
-     path: `/post/${edge.node.slug}`,
-     context: {
-       slug: edge.node.slug
-     },
-   })
- })
+//  edges.forEach(edge => {
+//    createPage({
+//      path: `/post/${edge.node.slug}`,
+//      context: {
+//        slug: edge.node.slug
+//      },
+//    })
+//  })
