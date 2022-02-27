@@ -30,10 +30,19 @@ module.exports = {
         pedantic: true,
         gfm: true,
         plugins: [],
-      }
+      },
     },
     {
       resolve:`gatsby-plugin-postcss`,
-    }
+    },
+    {
+      resolve: `gatsby-source-notion-api`,
+      options: {
+        token: process.env.GATSBY_NOTION_TOKEN,
+        databaseId: process.env.GATSBY_NOTION_DATABASE_ID,
+        propsToFrontmatter: true,
+        lowerTitleLevel: true,
+      }
+    },
   ],
-}
+};
