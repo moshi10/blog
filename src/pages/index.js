@@ -1,36 +1,42 @@
 import React from "react"
+import { graphql } from "gatsby";
+
 import Layout from "../components/layout"
 import Hero from "../components/hero"
 import PostLink from "../components/post-link"
-import { graphql } from "gatsby";
 import SEO from "../components/seo"
 
+
 export default function Home({ data }) {
+  
+  const posts = data.allMarkdownRemark.edges
+
   return (
     <Layout>
-      <SEO title="nekosu tech blog" description="ねこすが書いている技術ブログです"/>
+      <SEO title="matcha blog" description="matchaのブログβ"/>
       {/* <Hero /> */}
-      {data.allContentfulArticle.edges.map(edge =>
-        <PostLink key={edge.node.slug} post={edge.node} />)}
+      {posts.map(post =>
+        <PostLink key={post.node.slug} post={post.node} />)}
     </Layout>
   )
 }
 
 export const query = graphql`
-query MyQuery {
-  allContentfulArticle {
+{
+  allMarkdownRemark(filter: {frontmatter: {published: {eq: true}}}, sort: {fields: frontmatter___createdAt, order: DESC}) {
     edges {
       node {
-        title
-        description {
-          description
-        }
-        slug
-        createdAt(locale: "ja-JP", formatString: "YYYY-MM-DD")
-        updatedAt(locale: "ja-JP", formatString: "YYYY-MM-DD")
-        tags {
+        id
+        html
+        frontmatter {
+          published
           title
+          tags {
+            name
+          }
           slug
+          createdAt(formatString: "YYYY/MM/DD")
+          updatedAt(formatString: "YYYY/MM/DD")
         }
       }
     }

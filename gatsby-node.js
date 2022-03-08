@@ -5,26 +5,26 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
  {
-  query MyQuery {
-    allMarkdownRemark(filter: {frontmatter: {Published: {eq: true}}}, sort: {fields: frontmatter___CreatedAt, order: DESC}) {
+    allMarkdownRemark(filter: {frontmatter: {published: {eq: true}}}, sort: {fields: frontmatter___createdAt, order: DESC}) {
       edges {
         node {
           id
+          html
           frontmatter {
-            Published
+            published
             title
-            Tags {
+            tags {
               name
             }
-            Slug
-            CreatedAt(formatString: "YYYY/MM/DD")
-            UpdatedAt(formatString: "YYYY/MM/DD")
+            slug
+            createdAt(formatString: "YYYY/MM/DD")
+            updatedAt(formatString: "YYYY/MM/DD")
           }
         }
       }
     }
   }  
-}
+
 
   `)
 
@@ -33,13 +33,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
  const edges = result.data.allMarkdownRemark.edges
- const path = edges.node.frontmater.Slug
- 
 
   edges.forEach(edge => {
     createPage({
-      path: path,
-      component: path.resolve("./src/templates/post.js"),
+      path: `/post/${edge.node.frontmatter.slug}`,
+      component:path.resolve("./src/templates/post.js") ,
+      // post.jsのpageContextにわたってくはず
       context: { post: edge.node },
     })
   })
