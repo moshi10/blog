@@ -5,28 +5,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
  {
-  allContentfulArticle {
-    edges {
-      node {
-        title
-        body {
-          childMarkdownRemark {
-            html
+  query MyQuery {
+    allMarkdownRemark(filter: {frontmatter: {Published: {eq: true}}}, sort: {fields: frontmatter___CreatedAt, order: DESC}) {
+      edges {
+        node {
+          id
+          frontmatter {
+            Published
+            title
+            Tags {
+              name
+            }
+            Slug
+            CreatedAt(formatString: "YYYY/MM/DD")
+            UpdatedAt(formatString: "YYYY/MM/DD")
           }
-        }
-        description {
-          description
-        }
-        slug
-        createdAt(locale: "ja-JP", formatString: "YYYY-MM-DD")
-        updatedAt(locale: "ja-JP", formatString: "YYYY-MM-DD")
-        tags {
-          title
-          slug
         }
       }
     }
-  }
+  }  
 }
 
   `)
@@ -35,12 +32,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       reporter.panicOnBuild(`Error while running GraphQL query.`)
   }
 
- const { edges } = result.data.allContentfulArticle
+ const edges = result.data.allMarkdownRemark.edges
+ const path = edges.node.frontmater.Slug
+ 
 
- //記事詳細ページ
   edges.forEach(edge => {
     createPage({
-      path: `/post/${edge.node.createdAt}-${edge.node.slug}`,
+      path: path,
       component: path.resolve("./src/templates/post.js"),
       context: { post: edge.node },
     })
