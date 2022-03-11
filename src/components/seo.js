@@ -26,7 +26,7 @@ const SEO = ({ title, description }) => {
                 },
                 {
                     property: `og:site_name`,
-                    content: `nekosu tech blog`
+                    content: `matcha blog`
                 },
                 {
                     property: `og:locale`,
