@@ -10,9 +10,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "nekosu blog",
-    description: "nekosuが書いている技術ブログです",
-    author: "nekosu"
+    title: "🍒matcha🍒 blog",
+    description: "matchaが書いている技術ブログです",
+    author: "matcha"
   },
   plugins: [
     {
@@ -36,6 +36,14 @@ module.exports = {
         propsToFrontmatter: true,
         lowerTitleLevel: true,
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          process.env.GOOGLE_ANALYTICS_ID,
+        ],
+      },
     },
   ],
 };
