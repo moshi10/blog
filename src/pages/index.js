@@ -5,7 +5,6 @@ import Hero from "../components/hero"
 import PostLink from "../components/post-link"
 import SEO from "../components/seo"
 
-
 export default function Home({ data }) {
   
   const posts = data.allMarkdownRemark.edges
