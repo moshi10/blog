@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 export default function Home({ data }) {
   
-  
+
   const posts = data.allMarkdownRemark.edges
 
   return (
@@ -41,5 +41,6 @@ export const query = graphql`
     }
   }
 }
+
 
 `
