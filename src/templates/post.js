@@ -18,3 +18,4 @@ export default function Post({ pageContext }) {
         </Layout>
     )
 }
+
