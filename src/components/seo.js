@@ -1,7 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet';
+import Icon from '../../static/matcha.jpg'
 
-const SEO = ({ title, description }) => {
+const Seo = ({ title, description, url }) => {
     return (
         <Helmet 
             htmlAttributes = {{ lang: "ja-jp" }}
@@ -31,6 +32,22 @@ const SEO = ({ title, description }) => {
                 {
                     property: `og:locale`,
                     content: `ja_JP`
+                },
+                {
+                    property: `twitter:card`,
+                    content: `summary`
+                },
+                {
+                    property: `twitter:site`,
+                    content: `@ma_cccha`
+                },
+                {
+                    property: `og:url`,
+                    content: url
+                },
+                {
+                    property: `og:image`,
+                    content: Icon
                 }
             ]}
         
@@ -38,4 +55,4 @@ const SEO = ({ title, description }) => {
     )
 }
 
-export default SEO
+export default Seo

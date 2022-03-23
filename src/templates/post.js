@@ -1,15 +1,16 @@
 import React from 'react';
 import "../styles/post.css"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 export default function Post({ pageContext }) {
-    const { title, updatedAt, description } = pageContext.post.frontmatter;
+    const { title, updatedAt, description, slug } = pageContext.post.frontmatter;
     const body = pageContext.post.html
+    const pageLink = `/post/${slug}/`
 
     return (
         <Layout>
-            <SEO title={title} description={description} />
+            <Seo title={title} description={description} url={pageLink}/>
             <div className="post-header">
                 <h1>{title}</h1>
                 <p className="post-date">{updatedAt}</p>

@@ -14,24 +14,25 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "autoprefixer": "^10.2.1",
+    "autoprefixer": "^10.4.4",
+    "canvas": "^2.9.1",
     "cucumber": "^7.0.0-rc.0",
-    "dotenv": "^8.2.0",
-    "gatsby": "^2.30.0",
-    "gatsby-plugin-postcss": "^3.5.0",
-    "gatsby-source-contentful": "^4.4.0",
+    "dotenv": "^16.0.0",
+    "gatsby": "^4.10.3",
+    "gatsby-plugin-postcss": "^5.10.0",
+    "gatsby-source-contentful": "^7.8.2",
     "gatsby-source-notion-api": "^0.11.0",
-    "gatsby-transformer-remark": "^2.14.0",
-    "postcss": "^8.2.4",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "gatsby-transformer-remark": "^5.10.2",
+    "postcss": "^8.4.12",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "react-scripts": "^3.4.0",
-    "tailwindcss": "^2.0.2"
+    "react-scripts": "^5.0.0",
+    "tailwindcss": "^3.0.23"
   },
   "devDependencies": {
-    "gatsby-plugin-google-gtag": "^4.9.0",
-    "prettier": "2.2.1"
+    "gatsby-plugin-google-gtag": "^4.10.0",
+    "prettier": "2.6.0"
   },
   "repository": {
     "type": "git",

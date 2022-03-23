@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby";
 import Layout from "../components/layout"
 import PostLink from "../components/post-link"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 export default function Home({ data }) {
   
@@ -10,7 +10,7 @@ export default function Home({ data }) {
 
   return (
     <Layout>
-      <SEO title="matcha blog" description="matchaのブログβ"/>
+      <Seo title="matcha blog" description="matchaのブログβ" url="https://matcha-blog.netlify.app/"/>
       {posts.map(post =>
         <PostLink key={post.node.slug} post={post.node} />)}
     </Layout>
