@@ -19,6 +19,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             slug
             createdAt(formatString: "YYYY/MM/DD")
             updatedAt(formatString: "YYYY/MM/DD")
+            description
           }
         }
       }
@@ -38,18 +39,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage({
       path: `/post/${edge.node.frontmatter.slug}`,
       component:path.resolve("./src/templates/post.js") ,
-      // post.jsのpageContextにわたってくはず
       context: { post: edge.node },
     })
   })
 }
-
-//タグ
-//  edges.forEach(edge => {
-//    createPage({
-//      path: `/post/${edge.node.slug}`,
-//      context: {
-//        slug: edge.node.slug
-//      },
-//    })
-//  })

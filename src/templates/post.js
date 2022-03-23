@@ -4,12 +4,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default function Post({ pageContext }) {
-    const { title, updatedAt } = pageContext.post.frontmatter;
+    const { title, updatedAt, description } = pageContext.post.frontmatter;
     const body = pageContext.post.html
 
     return (
         <Layout>
-            {/* <SEO title={title} description={description} /> */}
+            <SEO title={title} description={description} />
             <div className="post-header">
                 <h1>{title}</h1>
                 <p className="post-date">{updatedAt}</p>

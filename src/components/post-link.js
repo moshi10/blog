@@ -5,7 +5,7 @@ import "../styles/post-link.css"
 
 export default function PostLink({ post }) {
 
-    const  { title, updatedAt, slug} = post.frontmatter
+    const  { title, createdAt, slug, description} = post.frontmatter
 
     // 投稿リンクのURLを定義
     const pageLink = `/post/${slug}/`
@@ -14,11 +14,9 @@ export default function PostLink({ post }) {
         <Link to={pageLink} className="post-link-anchor">
         <div className="post-link">
             <div className="post-link-text">
-                <h2>{title}</h2>                
-                    {/* {post.tags && post.frontmatter.tags.map(({ title, slug }) =>
-                        <li><Link to={`/post/${slug}`}>#{title}</Link></li>)
-                    } */}
-                <p className="post-link-date">{updatedAt}</p>
+                <h2>{title}</h2>
+                <p>{description}</p>                
+                <p className="post-link-date">{createdAt}</p>
             </div>
         </div>
         </Link>
