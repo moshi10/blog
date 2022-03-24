@@ -1,10 +1,10 @@
-const React = require("react")
-const Layout = require("./src/components/layout")
-
 exports.onPreRenderHTML = function onPreRenderHTML({
     getHeadComponents,
     replaceHeadComponents,
   }) {
+
+    console.log("ｻｸﾁｬﾝﾀﾞﾖ");
+
     const headComponents = getHeadComponents();
     headComponents.sort((a, b) => {
       if (a.type === b.type || (a.type !== 'style' && b.type !== 'style')) {
