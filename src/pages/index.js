@@ -11,8 +11,8 @@ export default function Home({ data }) {
   return (
     <Layout>
       <Seo title="matcha blog" description="matchaのブログβ" url="https://matcha-blog.netlify.app/"/>
-      {posts.map(post =>
-        <PostLink key={post.node.slug} post={post.node} />)}
+      {posts.map((post,i) =>
+        <PostLink key={i} post={post.node} />)}
     </Layout>
   )
 }
