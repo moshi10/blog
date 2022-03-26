@@ -2,6 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet';
 import Icon from '../../static/matcha.jpg'
 
+
 const Seo = ({ title, description, url }) => {
     return (
         <Helmet 
