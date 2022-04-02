@@ -25,9 +25,7 @@ module.exports = {
         plugins: [],
       },
     },
-    {
-      resolve:`gatsby-plugin-postcss`,
-    },
+
     {
       resolve: `gatsby-source-notion-api`,
       options: {
