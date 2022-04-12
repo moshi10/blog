@@ -1,21 +1,19 @@
 import { graphql } from 'gatsby';
 import React from 'react'
 import { Helmet } from 'react-helmet';
-import Icon from '../../static/matcha.jpg'
-
 
 const Seo = ({ title, description, meta }) => {
-const data = useStaticQuery(graphql`
-query {
-    site {
-      siteMetadata {
-        title
-        siteUrl
-        description
-      }
-    }
-  }
-`)
+// const data = useStaticQuery(graphql`
+// query {
+//     site {
+//       siteMetadata {
+//         title
+//         siteUrl
+//         description
+//       }
+//     }
+//   }
+// `)
 
     return (
         <Helmet 
