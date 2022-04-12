@@ -1,9 +1,22 @@
+import { graphql } from 'gatsby';
 import React from 'react'
 import { Helmet } from 'react-helmet';
 import Icon from '../../static/matcha.jpg'
 
 
-const Seo = ({ title, description, url }) => {
+const Seo = ({ title, description, meta }) => {
+const data = useStaticQuery(graphql`
+query {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+        description
+      }
+    }
+  }
+`)
+
     return (
         <Helmet 
             htmlAttributes = {{ lang: "ja-jp" }}
@@ -41,14 +54,6 @@ const Seo = ({ title, description, url }) => {
                 {
                     property: `twitter:site`,
                     content: `@ma_cccha`
-                },
-                {
-                    property: `og:url`,
-                    content: url
-                },
-                {
-                    property: `og:image`,
-                    content: Icon
                 }
             ]}
         
