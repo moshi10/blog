@@ -12,7 +12,8 @@ module.exports = {
   siteMetadata: {
     title: "matcha blog",
     description: "matchaが書いている技術ブログです",
-    author: "matcha"
+    author: "matcha",
+    siteUrl: `https://matcha-blog.netlify.app/`
   },
   plugins: [
     {
@@ -43,6 +44,9 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-sitemap`
+    }
   ],
 };
 
